@@ -3,81 +3,117 @@ import Icon from "@/components/ui/icon";
 
 const Hero = () => {
   return (
-    <section className="bg-gradient-to-br from-minecraft-dark to-minecraft-darker py-16 px-4">
-      <div className="container mx-auto text-center">
-        <div className="max-w-4xl mx-auto">
-          {/* Server Status */}
-          <div className="inline-flex items-center space-x-2 bg-minecraft-green/20 rounded-full px-4 py-2 mb-6">
-            <div className="w-3 h-3 bg-minecraft-green rounded-full animate-pulse-green"></div>
-            <span className="text-minecraft-green font-medium">
-              Сервер онлайн • 1,247 игроков
+    <section className="relative bg-gradient-to-br from-minecraft-dark via-minecraft-darker to-minecraft-dark py-20 px-4 overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="grid grid-cols-20 gap-1 h-full">
+          {Array.from({ length: 400 }).map((_, i) => (
+            <div key={i} className="bg-minecraft-green/20 rounded-sm"></div>
+          ))}
+        </div>
+      </div>
+
+      <div className="container mx-auto text-center relative z-10">
+        <div className="max-w-5xl mx-auto">
+          {/* Server Status Banner */}
+          <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-minecraft-green/20 to-minecraft-gold/20 border border-minecraft-green/30 rounded-full px-6 py-3 mb-8">
+            <div className="flex items-center space-x-2">
+              <div className="w-3 h-3 bg-minecraft-green rounded-full animate-pulse-green"></div>
+              <span className="text-minecraft-green font-bold">ОНЛАЙН</span>
+            </div>
+            <div className="w-px h-4 bg-minecraft-green/30"></div>
+            <span className="text-white font-medium">1,247 игроков</span>
+            <div className="w-px h-4 bg-minecraft-green/30"></div>
+            <span className="text-minecraft-gold font-medium">
+              mc.craftstore.ru
             </span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            Лучший магазин для{" "}
-            <span className="text-minecraft-green">Minecraft</span>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            Премиум магазин для
+            <span className="text-transparent bg-gradient-to-r from-minecraft-green to-minecraft-gold bg-clip-text block">
+              Minecraft
+            </span>
           </h1>
 
-          <p className="text-xl text-minecraft-light-gray mb-8 max-w-2xl mx-auto">
-            Покупайте привилегии, блоки, оружие и многое другое для вашего
-            приключения в мире кубиков
+          <p className="text-xl text-minecraft-light-gray mb-10 max-w-3xl mx-auto leading-relaxed">
+            Покупайте привилегии, ранги, предметы и ресурсы для незабываемого
+            игрового опыта. Мгновенная выдача после оплаты!
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Button
               size="lg"
-              className="bg-minecraft-green hover:bg-minecraft-green/80 text-minecraft-dark font-bold px-8 py-4 text-lg"
+              className="bg-gradient-to-r from-minecraft-green to-minecraft-green/80 hover:from-minecraft-green/80 hover:to-minecraft-green text-minecraft-dark font-bold px-10 py-4 text-lg border-2 border-minecraft-green/30 shadow-lg transform hover:scale-105 transition-all"
             >
-              <Icon name="ShoppingBag" size={20} className="mr-2" />
+              <Icon name="ShoppingBag" size={22} className="mr-3" />
               Открыть каталог
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="border-minecraft-green text-minecraft-green hover:bg-minecraft-green hover:text-minecraft-dark font-bold px-8 py-4 text-lg"
+              className="border-2 border-minecraft-gold text-minecraft-gold hover:bg-minecraft-gold hover:text-minecraft-dark font-bold px-10 py-4 text-lg shadow-lg transform hover:scale-105 transition-all"
             >
-              <Icon name="Play" size={20} className="mr-2" />
+              <Icon name="Gamepad2" size={22} className="mr-3" />
               Подключиться к серверу
             </Button>
           </div>
 
-          {/* Server Info */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="bg-minecraft-darker/50 border border-minecraft-green/20 rounded-lg p-6">
+          {/* Server Statistics */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-minecraft-darker/80 to-minecraft-dark/80 border border-minecraft-green/30 rounded-xl p-6 backdrop-blur-sm hover:border-minecraft-green/50 transition-all">
               <Icon
                 name="Users"
-                size={32}
-                className="text-minecraft-gold mb-2 mx-auto"
+                size={36}
+                className="text-minecraft-gold mb-3 mx-auto"
               />
-              <h3 className="text-minecraft-gold font-bold text-lg mb-1">
+              <h3 className="text-minecraft-gold font-bold text-2xl mb-1">
                 1,247
               </h3>
-              <p className="text-minecraft-gray text-sm">Игроков онлайн</p>
+              <p className="text-minecraft-gray text-sm font-medium">
+                Игроков онлайн
+              </p>
             </div>
-            <div className="bg-minecraft-darker/50 border border-minecraft-green/20 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-minecraft-darker/80 to-minecraft-dark/80 border border-minecraft-blue/30 rounded-xl p-6 backdrop-blur-sm hover:border-minecraft-blue/50 transition-all">
               <Icon
-                name="Server"
-                size={32}
-                className="text-minecraft-blue mb-2 mx-auto"
+                name="Clock"
+                size={36}
+                className="text-minecraft-blue mb-3 mx-auto"
               />
-              <h3 className="text-minecraft-blue font-bold text-lg mb-1">
-                24/7
+              <h3 className="text-minecraft-blue font-bold text-2xl mb-1">
+                99.9%
               </h3>
-              <p className="text-minecraft-gray text-sm">Стабильная работа</p>
+              <p className="text-minecraft-gray text-sm font-medium">
+                Время работы
+              </p>
             </div>
-            <div className="bg-minecraft-darker/50 border border-minecraft-green/20 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-minecraft-darker/80 to-minecraft-dark/80 border border-minecraft-green/30 rounded-xl p-6 backdrop-blur-sm hover:border-minecraft-green/50 transition-all">
               <Icon
                 name="Shield"
-                size={32}
-                className="text-minecraft-green mb-2 mx-auto"
+                size={36}
+                className="text-minecraft-green mb-3 mx-auto"
               />
-              <h3 className="text-minecraft-green font-bold text-lg mb-1">
+              <h3 className="text-minecraft-green font-bold text-2xl mb-1">
                 100%
               </h3>
-              <p className="text-minecraft-gray text-sm">Защита от гриферов</p>
+              <p className="text-minecraft-gray text-sm font-medium">
+                Защита от гриферов
+              </p>
+            </div>
+            <div className="bg-gradient-to-br from-minecraft-darker/80 to-minecraft-dark/80 border border-minecraft-red/30 rounded-xl p-6 backdrop-blur-sm hover:border-minecraft-red/50 transition-all">
+              <Icon
+                name="Zap"
+                size={36}
+                className="text-minecraft-red mb-3 mx-auto"
+              />
+              <h3 className="text-minecraft-red font-bold text-2xl mb-1">
+                24/7
+              </h3>
+              <p className="text-minecraft-gray text-sm font-medium">
+                Поддержка
+              </p>
             </div>
           </div>
         </div>
